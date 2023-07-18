@@ -1,5 +1,6 @@
 // Greet should render text hello and if a name is passed into the Greet component then
 // it should render the name text too
+// test.only() and test.skip()
 import { render, screen } from "@testing-library/react";
 import Greet from "./greet";
 
@@ -11,7 +12,7 @@ test("Greet should render hello", () => {
   expect(textElement).toBeInTheDocument();
 });
 
-test("should render a name props that is passed", () => {
+test("should render a name props", () => {
   const name = "Samson";
 
   render(<Greet name={name} />);
