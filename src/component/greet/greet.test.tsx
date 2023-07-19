@@ -13,12 +13,13 @@ describe("Greet", () => {
   test("should render hello", () => {
     render(<Greet />);
 
-    const textElement = screen.getByText("Hello");
+    const textElement = screen.getByText(/Hello/);
 
     expect(textElement).toBeInTheDocument();
   });
 });
 
+//comment out this Nested describe and test file
 describe("Nested", () => {
   test("should render a name props", () => {
     const name = "Samson";
