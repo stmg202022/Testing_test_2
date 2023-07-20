@@ -15,7 +15,7 @@ export const Application = () => {
           <textarea id="bio" />
         </div>
         <div>
-          <label htmlFor="job-location">Job location:</label>
+          <label htmlFor="job-location">Name:</label>
           <select name="" id="job-location">
             <option value="">Select Country</option>
 
@@ -34,7 +34,7 @@ export const Application = () => {
         </div>
         <div>
           <label>
-            <input type="checkbox" id="terms" />I agree tho the tery amd
+            <input type="checkbox" id="terms" />I agree to the term and
             conditions.
           </label>
         </div>

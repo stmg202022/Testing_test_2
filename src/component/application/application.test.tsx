@@ -26,10 +26,28 @@ describe("Application", () => {
     });
     expect(nameElement).toBeInTheDocument();
 
+    // const nameElement2 = screen.getByLabelText("Name:");
+    // expect(nameElement2).toBeInTheDocument();
+
+    //If diff.. label element contain same text
+    const nameElement2 = screen.getByLabelText("Name:", {
+      selector: "input",
+    });
+    expect(nameElement2).toBeInTheDocument();
+
+    const nameElement3 = screen.getByLabelText("Name:", {
+      selector: "select",
+    });
+    expect(nameElement3).toBeInTheDocument();
+    //
+
     const bioElement = screen.getByRole("textbox", {
       name: "Bio:",
     });
     expect(bioElement).toBeInTheDocument();
+
+    const bioElement2 = screen.getByLabelText("Bio:");
+    expect(bioElement2).toBeInTheDocument();
 
     //
     const jobLocationElement = screen.getByRole("combobox");
@@ -38,6 +56,11 @@ describe("Application", () => {
     //
     const checkboxElement = screen.getByRole("checkbox");
     expect(checkboxElement).toBeInTheDocument();
+
+    const checkboxElement2 = screen.getByLabelText(
+      "I agree to the term and conditions."
+    );
+    expect(checkboxElement2).toBeInTheDocument();
 
     //
     const submitButtonElement = screen.getByRole("button");
