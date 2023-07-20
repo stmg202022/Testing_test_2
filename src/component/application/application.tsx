@@ -5,6 +5,7 @@ export const Application = () => {
     <>
       <h1>Job application Form</h1>
       <h2>Section1</h2>
+      <p>All Fields are mandatory.</p>
       <form>
         <div>
           <label htmlFor="name">Name:</label>
