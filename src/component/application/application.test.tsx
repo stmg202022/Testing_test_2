@@ -78,5 +78,8 @@ describe("Application", () => {
 
     const paragraphElement = screen.getByText("All Fields are mandatory.");
     expect(paragraphElement).toBeInTheDocument();
+
+    const imageElement = screen.getByAltText("A person with a laptop.");
+    expect(imageElement).toBeInTheDocument();
   });
 });
