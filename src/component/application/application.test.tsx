@@ -1,5 +1,5 @@
 import { Application } from "./application";
-import { getByRole, render, screen } from "@testing-library/react"; //from RTL
+import { render, screen } from "@testing-library/react"; //from RTL
 
 describe("Application", () => {
   test("render correctly", () => {
