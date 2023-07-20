@@ -76,10 +76,19 @@ describe("Application", () => {
     expect(submitButtonElement).toBeInTheDocument();
     //
 
+    //
     const paragraphElement = screen.getByText("All Fields are mandatory.");
     expect(paragraphElement).toBeInTheDocument();
 
+    //
     const imageElement = screen.getByAltText("A person with a laptop.");
     expect(imageElement).toBeInTheDocument();
+    //
+
+    const spanElement = screen.getByTitle("Close");
+    expect(spanElement).toBeInTheDocument();
+    //
+
+    //
   });
 });
