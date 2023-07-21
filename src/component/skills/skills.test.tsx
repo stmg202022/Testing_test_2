@@ -23,5 +23,23 @@ describe("Skills", () => {
     expect(listItemElements).toHaveLength(skills.length); //dont use hard code hera // 3
   });
 
+  //login button test by QueryBy
+  //Only login button is shown and start learning button is not present in the ui
+  test("render login button", () => {
+    render(<Skills skills={skills} />);
+
+    const loginButton = screen.getByRole("button");
+    expect(loginButton).toBeInTheDocument();
+  });
+
+  test("Start leraning button is not rendered", () => {
+    render(<Skills skills={skills} />);
+
+    const startLearningButton = screen.queryByRole("button", {
+      name: "Start learn",
+    });
+    expect(startLearningButton).not.toBeInTheDocument();
+  });
+
   //
 });
