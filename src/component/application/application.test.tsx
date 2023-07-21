@@ -87,8 +87,11 @@ describe("Application", () => {
 
     const spanElement = screen.getByTitle("Close");
     expect(spanElement).toBeInTheDocument();
+
     //
 
+    const customElement = screen.getByTestId("costum-element");
+    expect(customElement).toBeInTheDocument();
     //
   });
 });

@@ -8,6 +8,7 @@ export const Application = () => {
       <p>All Fields are mandatory.</p>
       <span title="Close">X</span>
       <img src="https://placehold.co/600x400" alt="A person with a laptop." />
+      <div data-testid="costum-element">Custom HTML element.</div>
       <form>
         <div>
           <label htmlFor="name">Name:</label>
