@@ -80,6 +80,31 @@ describe("Application", () => {
     const paragraphElement = screen.getByText("All Fields are mandatory.");
     expect(paragraphElement).toBeInTheDocument();
 
+    //TEXTMATCH - string
+    const paragraphElement2 = screen.getByText("all field", { exact: false });
+    expect(paragraphElement2).toBeInTheDocument();
+    //this is not passing ?
+    // const paragraphElement2 = screen.getByText("ll ields are ory", {
+    //   exact: false,
+    // });
+    // expect(paragraphElement2).toBeInTheDocument();
+
+    //TEXTMATCH - regx
+    const paragraphElement3 = screen.getByText(/Fields/);
+    expect(paragraphElement3).toBeInTheDocument();
+
+    const paragraphElement4 = screen.getByText(/fields/i);
+    expect(paragraphElement4).toBeInTheDocument();
+
+    const paragraphElement5 = screen.getByText(/^all Fields are mandatory.$/i);
+    expect(paragraphElement5).toBeInTheDocument();
+
+    //TEXTMATCH - functions
+    const paragraphElement6 = screen.getByText((content) =>
+      content.startsWith("All")
+    );
+    expect(paragraphElement6).toBeInTheDocument();
+
     //
     const imageElement = screen.getByAltText("A person with a laptop.");
     expect(imageElement).toBeInTheDocument();
