@@ -11,6 +11,7 @@ describe("Skills", () => {
 
     //
     const listElement = screen.getByRole("list");
+
     expect(listElement).toBeInTheDocument();
     //
   });
@@ -24,21 +25,23 @@ describe("Skills", () => {
   });
 
   //login button test by QueryBy
-  //Only login button is shown and start learning button is not present in the ui
+  //Only LOGIN button is shown and start learning button is not present in the ui
   test("render login button", () => {
     render(<Skills skills={skills} />);
 
-    const loginButton = screen.getByRole("button");
+    const loginButton = screen.getByRole("button", {
+      name: "LOGIN",
+    });
     expect(loginButton).toBeInTheDocument();
   });
 
   test("Start leraning button is not rendered", () => {
     render(<Skills skills={skills} />);
 
-    const startLearningButton = screen.queryByRole("button", {
+    const startLearnButton = screen.queryByRole("button", {
       name: "Start learn",
     });
-    expect(startLearningButton).not.toBeInTheDocument();
+    expect(startLearnButton).not.toBeInTheDocument();
   });
 
   //
