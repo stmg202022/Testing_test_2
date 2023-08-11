@@ -1,9 +1,8 @@
 //
-import { useState } from "react";
+// import { useState } from "react";
 import { GreetProps } from "./greet.types";
 
 const Greet = (props: GreetProps) => {
-  const [name, setName] = useState("");
   return (
     <div>
       <h1>Hello {props.name ? props.name : "Guest"}</h1>
@@ -11,7 +10,7 @@ const Greet = (props: GreetProps) => {
       <div>
         <form action="">
           <label htmlFor="Name:" />
-          <input type="text" value="Name.." />
+          <input type="text" value="Name." />
           <button>Login</button>
         </form>
       </div>
