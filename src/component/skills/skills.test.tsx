@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { logRoles, render, screen } from "@testing-library/react";
 
 import { Skills } from "./skills";
 
@@ -57,8 +57,11 @@ describe("Skills", () => {
 
   //SOLUTIONS OF setTimeOut() //findBy // it is also the example for data fetching
   test("start learn button should display after 500milisecond", async () => {
-    render(<Skills skills={skills} />);
+    const view = render(<Skills skills={skills} />);
 
+    // logRoles(view.container);
+
+    // screen.debug();
     const startLearnButton = await screen.findByRole(
       "button",
       {
@@ -68,6 +71,8 @@ describe("Skills", () => {
         timeout: 2000, //timeOut set // default is 1000ms
       }
     );
+
+    // screen.debug();
     expect(startLearnButton).toBeInTheDocument();
   });
 });

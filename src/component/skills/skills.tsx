@@ -6,6 +6,8 @@ export const Skills = (props: SkillsProps) => {
   const { skills } = props;
   const [isloggedIn, setIsloggedIn] = useState(false);
 
+  const [name, setName] = useState("");
+
   useEffect(() => {
     //
     setTimeout(() => {
@@ -20,17 +22,29 @@ export const Skills = (props: SkillsProps) => {
 
   return (
     <>
-      <ul>
-        {skills.map((skill) => {
-          return <li key={skill}>{skill}</li>;
-        })}
-      </ul>
+      <div>
+        <ul>
+          {skills.map((skill) => {
+            return <li key={skill}>{skill}</li>;
+          })}
+        </ul>
 
-      {isloggedIn ? (
-        <button>Start learn</button>
-      ) : (
-        <button onClick={() => setIsloggedIn(true)}>LOGIN</button>
-      )}
+        {isloggedIn ? (
+          <button>Start learn</button>
+        ) : (
+          <button onClick={() => setIsloggedIn(true)}>LOGIN</button>
+        )}
+
+        <div>
+          <form action="">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </form>
+        </div>
+      </div>
     </>
   );
 };
