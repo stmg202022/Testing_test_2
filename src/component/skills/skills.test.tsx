@@ -44,5 +44,30 @@ describe("Skills", () => {
     expect(startLearnButton).not.toBeInTheDocument();
   });
 
-  //
+  //IF THIS IS PROBLEM FOR setTimeOut()
+  // test("start learn button should display after 500milisecond", () => {
+  //   render(<Skills skills={skills} />);
+
+  //   const startLearnButton = screen.getByRole("button", {
+  //     name: "Start learn",
+  //   });
+
+  //   expect(startLearnButton).toBeInTheDocument();
+  // });
+
+  //SOLUTIONS OF setTimeOut() //findBy // it is also the example for data fetching
+  test("start learn button should display after 500milisecond", async () => {
+    render(<Skills skills={skills} />);
+
+    const startLearnButton = await screen.findByRole(
+      "button",
+      {
+        name: "Start learn",
+      },
+      {
+        timeout: 2000, //timeOut set // default is 1000ms
+      }
+    );
+    expect(startLearnButton).toBeInTheDocument();
+  });
 });
