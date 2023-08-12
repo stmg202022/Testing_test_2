@@ -14,12 +14,12 @@ function App() {
   return (
     <AppProviders>
       <div className="App">
-        <MuiMode />
         {/* <Application /> */}
         {/* <Skills skills={skills} /> */}
         {/* <Practise /> */}
         <Greet name="samson" />
         <Counter />
+        <MuiMode />
       </div>
     </AppProviders>
   );
