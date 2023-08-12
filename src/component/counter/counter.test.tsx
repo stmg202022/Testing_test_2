@@ -54,4 +54,48 @@ describe("Counter", () => {
   // });
 
   //STUDY ON POINTER INTERACTIONS
+
+  //user.type()//.toHaveValue()// user.click()//toHaveTextContent()
+  test("render a count of 10 after clicking the Set button", async () => {
+    user.setup();
+    render(<Counter />);
+
+    const amountInput = screen.getByRole("spinbutton");
+
+    await user.type(amountInput, "10");
+
+    expect(amountInput).toHaveValue(10);
+
+    const setButton = screen.getByRole("button", { name: /set/i });
+
+    await user.click(setButton);
+
+    const headingElement = screen.getByRole("heading");
+
+    expect(headingElement).toHaveTextContent("10");
+  });
+
+  //toHaveFocus() in right order when user.tab()
+  test("element are focused in the right order", async () => {
+    user.setup();
+
+    render(<Counter />);
+
+    const incrementButton = screen.getByRole("button", {
+      name: "Increment",
+    });
+    const amountInput = screen.getByRole("spinbutton");
+    const setButton = screen.getByRole("button", {
+      name: "Set",
+    });
+
+    await user.tab();
+    expect(incrementButton).toHaveFocus();
+
+    await user.tab();
+    expect(amountInput).toHaveFocus();
+
+    await user.tab();
+    expect(setButton).toHaveFocus();
+  });
 });
