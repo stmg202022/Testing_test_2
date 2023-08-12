@@ -52,4 +52,6 @@ describe("Counter", () => {
   //   const countElement = screen.getByRole("heading");
   //   expect(countElement).toHaveTextContent("2");
   // });
+
+  //STUDY ON POINTER INTERACTIONS
 });
