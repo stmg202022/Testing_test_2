@@ -674,3 +674,36 @@ paste()
 Keyword APIs:
 keyboard(‘foo’) // translates to: f, o, o
 keyboard(‘{Shift>}A{/shift}’) // translate to : Shift(down), A, Shift(up)
+
+Material ui providers
+
+First setup the material ui theme, themeProvider, CssBaseLine etc.
+npm install @mui/material @mui/styled-engine-sc styled-components
+
+useTheme()
+
+How to test with the wrapper Component ? Learn… why to use wrapper and how to used it ?
+
+Eg: AppProvider > mui_mode
+
+For that we have wrapper:
+import { render, screen } from "@testing-library/react";
+import { MuiMode } from "./mui_mode";
+import { AppProviders } from "../../providers/app_providers";
+
+describe("MuiMode", () => {
+test("render the dark mode content correctly", () => {
+render(<MuiMode />, {
+wrapper: AppProviders,
+});
+
+    const headingElement = screen.getByRole("heading");
+
+
+    expect(headingElement).toBeInTheDocument();
+
+
+    expect(headingElement).toHaveTextContent("dark mode");
+
+});
+});
