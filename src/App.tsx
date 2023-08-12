@@ -6,16 +6,22 @@ import "./App.css";
 import Greet from "./component/greet/greet";
 import { Counter } from "./component/counter/counter";
 
+import { AppProviders } from "./providers/app_providers";
+import { MuiMode } from "./component/mui/mui_mode";
+
 function App() {
   // const skills = ["html", "css", "js"];
   return (
-    <div className="App">
-      {/* <Application /> */}
-      {/* <Skills skills={skills} /> */}
-      {/* <Practise /> */}
-      <Greet name="samson" />
-      <Counter />
-    </div>
+    <AppProviders>
+      <div className="App">
+        <MuiMode />
+        {/* <Application /> */}
+        {/* <Skills skills={skills} /> */}
+        {/* <Practise /> */}
+        <Greet name="samson" />
+        <Counter />
+      </div>
+    </AppProviders>
   );
 }
 
