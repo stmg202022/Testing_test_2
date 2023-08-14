@@ -24,3 +24,16 @@ import "@testing-library/jest-dom";
 // =>https://github.com/testing-library/jest-dom
 
 // We can see the inclusion of testing-library in setupTests.Ts folder too In react app vs code. It is a global setup file in a create react app project and this will be automatically executed before jest runs a test.
+
+// ===============================================================This is for muck service workers==========================================
+// src/setupTests.js
+import { server } from "./mucks/server";
+// Establish API mocking before all tests.
+beforeAll(() => server.listen());
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+
+// Clean up after the tests are finished.
+afterAll(() => server.close());

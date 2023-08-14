@@ -12,5 +12,12 @@ describe("Users", () => {
   });
   //
 
+  test("users render correctly in userlist", async () => {
+    render(<Users />);
+
+    const users = await screen.findAllByRole("listitem");
+    expect(users).toHaveLength(3);
+  });
+
   //
 });

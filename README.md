@@ -732,3 +732,24 @@ First: install MSW
 second: create a src> mucks> server.ts && handlers.ts
 third: copy and paste from given link setup
 https://mswjs.io/docs/getting-started/integrate/node
+
+<!-- =================================================================================== -->
+
+##How to use the MSW to test APIs ?
+
+First: go to the src/setupTests.js
+Second: go to this link: https://mswjs.io/docs/getting-started/integrate/node and copy and paste this code in setupTest.js:
+For server:
+// src/setupTests.js
+import { server } from './mocks/server.js'
+
+// Establish API mocking before all tests.
+beforeAll(() => server.listen())
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers())
+
+// Clean up after the tests are finished.
+afterAll(() => server.close())
+Third: now we can test any data fetching apis in any react component using async/await with findBy.
