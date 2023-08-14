@@ -24,7 +24,7 @@ describe("Users", () => {
   });
 
   //how to HANDLE THE ERROR by MSW WHEN MOKING THE  DATA REQUEST ?
-  test("render error when error occured in data fetching ", async () => {
+  test("render error when error occured in data fetching", async () => {
     server.use(
       rest.get(
         "https://jsonplaceholder.typicode.com/users",
