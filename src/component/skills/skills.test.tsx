@@ -1,4 +1,5 @@
-import { logRoles, render, screen } from "@testing-library/react";
+// import { logRoles, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { Skills } from "./skills";
 
@@ -57,7 +58,9 @@ describe("Skills", () => {
 
   //SOLUTIONS OF setTimeOut() //findBy // it is also the example for data fetching
   test("start learn button should display after 500milisecond", async () => {
-    const view = render(<Skills skills={skills} />);
+    // const view = render(<Skills skills={skills} />);
+
+    render(<Skills skills={skills} />);
 
     // logRoles(view.container);
 

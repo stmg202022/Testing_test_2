@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react";
 import { useCounter } from "./useCounter";
 
 describe("useCounter", () => {
-  test("should render an initial count value correctly ", () => {
+  test("should render an initial count value correctly", () => {
     // render(<useCounter />); //it is giving a error due to dataTypes and declearing hook at outer fn
     const { result } = renderHook(useCounter); //get the result return by useCounter Hook
     expect(result.current.count).toBe(0);

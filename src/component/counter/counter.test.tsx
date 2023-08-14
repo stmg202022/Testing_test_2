@@ -3,7 +3,7 @@ import user from "@testing-library/user-event";
 import { Counter } from "./counter";
 
 describe("Counter", () => {
-  test("renders correctly ", () => {
+  test("renders correctly", () => {
     render(<Counter />);
 
     const countElement = screen.getByRole("heading");

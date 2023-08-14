@@ -74,6 +74,9 @@ describe("Application", () => {
     //
     const submitButtonElement = screen.getByRole("button");
     expect(submitButtonElement).toBeInTheDocument();
+    // expect(submitButtonElement).not.toBeEnabled(); //Eslint can find it and report
+    expect(submitButtonElement).toBeDisabled(); //Eslint can find it and report
+
     //
 
     //
