@@ -753,3 +753,44 @@ afterEach(() => server.resetHandlers())
 // Clean up after the tests are finished.
 afterAll(() => server.close())
 Third: now we can test any data fetching apis in any react component using async/await with findBy.
+
+<!-- ====================================================================================================================== -->
+
+##How to handle Error when mocking the Http request?
+
+//For handleing the error when dat fetching in testing.
+import { server } from "../../mucks/server";
+import { rest } from "msw";
+
+test("render error when error occured in data fetching ", async () => {
+server.use(
+rest.get(
+"https://jsonplaceholder.typicode.com/users",
+(req, res, ctx) => {
+return res(ctx.status(500));
+}
+)
+);
+
+    render(<Users />);
+
+
+    const errorText = await screen.findByText("Error in fetching Data.");
+    expect(errorText).toBeInTheDocument();
+
+});
+
+This is applied for this test only because every time when the test completed the server called to the resetHandlers() in setupTest.ts
+// src/setupTests.js
+import { server } from "./mucks/server";
+// Establish API mocking before all tests.
+beforeAll(() => server.listen());
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+
+// Clean up after the tests are finished.
+afterAll(() => server.close());
+
+//DONT FORGOT TO USE async/await and findBy

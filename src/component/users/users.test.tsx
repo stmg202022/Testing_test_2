@@ -1,5 +1,9 @@
 import { render, screen } from "@testing-library/react";
 
+//For handleing the error when dat fetching in testing.
+import { server } from "../../mucks/server";
+import { rest } from "msw";
+
 import { Users } from "./users";
 
 describe("Users", () => {
@@ -19,5 +23,20 @@ describe("Users", () => {
     expect(users).toHaveLength(3);
   });
 
-  //
+  //how to HANDLE THE ERROR by MSW WHEN MOKING THE  DATA REQUEST ?
+  test("render error when error occured in data fetching ", async () => {
+    server.use(
+      rest.get(
+        "https://jsonplaceholder.typicode.com/users",
+        (req, res, ctx) => {
+          return res(ctx.status(500));
+        }
+      )
+    );
+
+    render(<Users />);
+
+    const errorText = await screen.findByText("Error in fetching Data.");
+    expect(errorText).toBeInTheDocument();
+  });
 });
