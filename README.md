@@ -794,3 +794,25 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 //DONT FORGOT TO USE async/await and findBy
+
+<!-- ====================================================================================================================================== -->
+
+Static analysis testing
+
+Process of verifying that your code meets certain expectations without actually running it
+Ensure consistent style and formatting
+Check for common mistakes and possible bugs
+Limit the complexity of code and
+Verify type consistency
+
+Static testing analysis aspects such as readability, consistency, error handling, type checking and alignment with best practices.
+
+Testing checks if your code works or not, whereas static analysis checks if it is written well or not.
+Both the testing and static analysis are complementary to each other and you should ideally be employing a healthy mix of both in your projects.
+
+Static analysis testing tools:
+TypeScript
+ESlint
+Prettier
+Husky
+lint-staged
