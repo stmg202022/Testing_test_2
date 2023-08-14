@@ -816,3 +816,63 @@ ESlint
 Prettier
 Husky
 lint-staged
+
+<!-- ========================================================================================================================= -->
+
+=================================================================================ESlint
+
+ESlint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+
+//Link: https://eslint.org/docs/latest/use/getting-started
+
+ESlint is already installed by the create-react-app by default. We can use the ESlint extension by installing from the Extensions.
+
+Create react app also install the testing library plugin for ESlint by default.
+
+//setup for Eslint-plugin-jest-dom
+
+Install: npm install --save-dev eslint-plugin-jest-dom
+//link: https://www.npmjs.com/package/eslint-plugin-jest-dom#installation
+
+And add this in package.json:
+//before adding:
+"eslintConfig": {
+"extends": [
+"react-app",
+"react-app/jest"
+]
+},
+//After adding
+"eslintConfig": {
+"extends": [
+"react-app",
+"react-app/jest",
+"plugin:jest-dom/recommended"
+]
+},
+
+//before
+<button disabled>Submit</button>
+expect(submitButtonElement).not.toBeEnabled();
+
+//after
+<button disabled>Submit</button>
+expect(submitButtonElement).toBeDisabled();
+##How to run ESlint with npm script to run the command to identify if there are errors in the project when working in a team ?
+
+Add this in scripts:
+
+"lint": "eslint . --ignore-path .gitignore"
+
+"scripts": {
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "react-scripts test",
+"eject": "react-scripts eject",
+"coverage": "npm test -- --coverage --watchAll --collectCoverageFrom='src/component/\*_/_.{ts,tsx}'",
+"lint": "eslint . --ignore-path .gitignore"
+},
+
+Then run this cmd: npm run lint
+
+=> It finds and shows all errors occurred while writing testing. So we can identify errors in our project’s codebase. It is a linter which identifies and reports patterns in our source code to avoid bugs when possible
