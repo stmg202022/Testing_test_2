@@ -707,3 +707,28 @@ wrapper: AppProviders,
 
 });
 });
+
+<!-- ===========================================================================
+ -->
+
+React testing with http request//data fetching(MSW)
+
+## What is MSW(Mock Service Worker) ?
+
+RTL is a popular library for testing React Components. When combined with Mock Service Workers, it offers a comprehensive solution for testing data fetching. MSW intercepts and handles API requests made during tests, allowing you to mock API responses for your calls.
+
+Mock Service Worker is an API mocking library that uses Service Worker API to intercept actual requests.
+
+Link: https://mswjs.io/
+unit, and E2E tests
+
+There are also:
+nock ?
+axios-mock-adapter?
+PactJS ?
+
+##How to setUp MSW in our project ?
+First: install MSW
+second: create a src> mucks> server.ts && handlers.ts
+third: copy and paste from given link setup
+https://mswjs.io/docs/getting-started/integrate/node
