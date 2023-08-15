@@ -67,7 +67,7 @@ describe("Application", () => {
     expect(checkboxElement).toBeInTheDocument();
 
     const checkboxElement2 = screen.getByLabelText(
-      "I agree to the term and conditions."
+      "I agree to the term and conditions.",
     );
     expect(checkboxElement2).toBeInTheDocument();
 
@@ -104,7 +104,7 @@ describe("Application", () => {
 
     //TEXTMATCH - functions
     const paragraphElement6 = screen.getByText((content) =>
-      content.startsWith("All")
+      content.startsWith("All"),
     );
     expect(paragraphElement6).toBeInTheDocument();
 

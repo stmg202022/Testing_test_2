@@ -876,3 +876,35 @@ Add this in scripts:
 Then run this cmd: npm run lint
 
 => It finds and shows all errors occurred while writing testing. So we can identify errors in our project’s codebase. It is a linter which identifies and reports patterns in our source code to avoid bugs when possible
+
+<!-- ======================================================================================================================================================= -->
+
+Prettier
+
+Prettier is an opinionated code formatter that ensures that all output code conforms to a consistent style.
+Link: https://prettier.io/docs/en/
+npm install --save-dev --save-exact prettier
+then
+Add this in package.json/script:
+"format": "prettier --ignore-path .gitignore --write \"\*_/_.{ts, tsx, css, scss}\""
+cmd : npm run format
+
+Create a file name: .prettierrc.json and add below code to and check.This file helps to format our prettier.
+
+{
+"semi": true,
+"singleQuote": false
+}
+
+Install prettier extensions for auto format.
+
+npm install --save-dev eslint-config-prettier
+And add this to:
+"eslintConfig": {
+"extends": [
+"react-app",
+"react-app/jest",
+"plugin:jest-dom/recommended",
+"Eslint-config-prettier" //add here
+]
+},
