@@ -908,3 +908,23 @@ And add this to:
 "Eslint-config-prettier" //add here
 ]
 },
+
+<!-- ========================================================================================================================================== -->
+
+HUSKY
+
+Husky is a tool that helps improve your commits and more.
+
+install : npx husky-init ; npm install
+
+Now the code will be committed after code formatting is done and ESlint code is done. Otherwise, it will show you errors in cmd after committing and commits will be canceled if lint error and formatting errors occur.
+
+Add above code in changes
+
+# npm test
+
+//changes
+
+# npm run lint && npm run format
+
+Try to commit at last by changing your code somewhere and test for errors.
